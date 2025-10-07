@@ -36,14 +36,30 @@ SELECT * FROM postgres_scan('postgresql://postgres:super@postgres:5432/users_dat
 transactions_parquet = pd.read_parquet('data/raw/transactions_data.parquet')
 connection.register('transactions_parquet', transactions_parquet)
 
+connection.execute("""
+CREATE TABLE IF NOT EXISTS transactions_parquet AS
+SELECT * FROM transactions_parquet
+""")
+
 transactions_arrow = pd.read_feather('data/raw/transactions_data.arrow')
 connection.register('transactions_arrow', transactions_arrow)
+
+connection.execute("""
+CREATE TABLE IF NOT EXISTS transactions_arrow AS
+SELECT * FROM transactions_arrow
+""")
 
 client = pymongo.MongoClient("mongodb://mongo:super@mongodb:27017/")
 db = client['card_data']
 cards_df = pd.DataFrame(list(db.Card.find()))
 connection.register('cards', cards_df)
 
+connection.execute("""
+CREATE TABLE IF NOT EXISTS cards AS
+SELECT * FROM cards
+""")
+
+'''
 @app.route("/query", methods=["POST"])
 def execute_query():
     data = request.json
@@ -62,7 +78,7 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)   
 
 
-'''
+
 ## Transactions amount by user and account
 with open("scripts/transaction_amount.sql", "r") as f:
     query = f.read()

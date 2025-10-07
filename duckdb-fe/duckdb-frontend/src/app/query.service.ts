@@ -11,6 +11,9 @@ export class QueryService {
   constructor(private http: HttpClient) {}
 
   runQuery(sql: string): Observable<any> {
-    return this.http.post<any>(this.apiUrl, { sql });
+    const cleanSql = sql.replace(/\s+/g, ' ').trim();
+    const query = { sql: cleanSql };
+    console.log(query);
+    return this.http.post<any>(this.apiUrl, query);
   }
 }

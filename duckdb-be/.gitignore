@@ -2,3 +2,6 @@ data/raw/transactions_data.csv
 __pycache__/
 analytics.duckdb
 pg-data/
+/plugins/*.jar
+/metabase-data/
+/plugins/

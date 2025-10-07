@@ -6,3 +6,4 @@ duckdb
 numpy
 requests           
 flask
+flask-cors
