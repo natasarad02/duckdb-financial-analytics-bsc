@@ -1,5 +1,9 @@
 # Integration and analysis of financial data from heterogeneous sources using DuckDB 🦆
 
+## Query runtime optimization bar chart
+
+<img width="997" height="597" alt="image" src="https://github.com/user-attachments/assets/e6642008-a5c1-4982-93a0-fd0fd54dd049" />
+
 ## Analyzing User Spending Behavior
 
 This project explores and analyzes user spending patterns, credit usage, and financial behavior using multiple data sources:
