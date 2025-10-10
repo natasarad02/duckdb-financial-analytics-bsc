@@ -33,13 +33,11 @@ CREATE TABLE address AS
 SELECT * FROM postgres_scan('postgresql://postgres:super@postgres:5432/users_data', 'public', 'Address');
 """)
 
-transactions_parquet = pd.read_parquet('data/raw/transactions_data.parquet')
-connection.register('transactions_parquet', transactions_parquet)
-
 connection.execute("""
-CREATE TABLE IF NOT EXISTS transactions_parquet AS
-SELECT * FROM transactions_parquet
+CREATE TABLE transactions_parquet AS
+SELECT * FROM read_parquet('data/raw/transactions_data.parquet');
 """)
+
 
 transactions_arrow = pd.read_feather('data/raw/transactions_data.arrow')
 connection.register('transactions_arrow', transactions_arrow)
