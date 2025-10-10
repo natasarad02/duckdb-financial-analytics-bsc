@@ -57,6 +57,43 @@ The analysis focuses on understanding user financial habits, assessing risk, and
 
 ---
 
+## Geographical Analysis of User Data
+
+This section focuses on understanding user behavior and financial metrics in a geographical context. By mapping transactions and financial attributes to user locations, we can gain insights into regional trends, hotspots, and disparities.
+
+---
+
+
+### 1. Transaction Density by Location (Hot-Spots)
+- Measures the total number of transactions per latitude and longitude.
+- Useful for identifying regions with high or low financial activity.
+- Can support location-based services, regional marketing, or resource allocation.
+
+### 2. Regional Financial Overview
+- Aggregates average total debt and yearly income by region.
+- Helps compare financial health across different areas.
+- Enables detection of high-debt regions or areas with strong income potential.
+- Supports strategic planning for credit offers, regional campaigns, and risk assessment.
+
+---
+
+## Potential Use Cases
+
+- **Regional Customer Segmentation:** Group users by location to tailor offers or services.  
+- **Hotspot Detection:** Identify areas with high transaction volume or significant financial activity.  
+- **Regional Risk Assessment:** Detect regions with higher average debt or financial stress.  
+- **Market Planning:** Align marketing, credit, or operational strategies based on regional trends.  
+
+---
+
+This analysis leverages DuckDB to efficiently join transactional and account data with address data, supporting high-performance, location-based insights.
+
+<img width="1059" height="1158" alt="image" src="https://github.com/user-attachments/assets/4ced7070-9655-48fe-b36e-937dce652295" />
+
+---
+
+
+
 
 
 
