@@ -1,3 +1,4 @@
+-- Q8
 SELECT 
     c.card_brand,
     COUNT(t.id) AS num_transactions,

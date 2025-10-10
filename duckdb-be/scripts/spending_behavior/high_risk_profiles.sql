@@ -1,3 +1,4 @@
+-- Q5
 SELECT
     a.user_id, a.credit_score, a.total_debt,
     AVG(CAST(REPLACE(t.amount, '$', '') AS DOUBLE)) AS avg_spent,

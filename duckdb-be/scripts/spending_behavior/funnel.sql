@@ -1,3 +1,4 @@
+-- Q4
 WITH funnel AS (
     SELECT COUNT(*) AS all_users
     FROM "User"

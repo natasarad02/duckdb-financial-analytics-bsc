@@ -38,7 +38,6 @@ CREATE TABLE transactions_parquet AS
 SELECT * FROM read_parquet('data/raw/transactions_data.parquet');
 """)
 
-
 transactions_arrow = pd.read_feather('data/raw/transactions_data.arrow')
 connection.register('transactions_arrow', transactions_arrow)
 
@@ -57,3 +56,5 @@ CREATE TABLE IF NOT EXISTS cards AS
 SELECT * FROM cards
 """)
 
+def get_connection():
+    return connection

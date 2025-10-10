@@ -1,3 +1,4 @@
+-- Q3
 SELECT
     a.user_id, a.total_debt,
     SUM(CAST(REPLACE(t.amount, '$', '') AS DOUBLE)) AS total_spending,

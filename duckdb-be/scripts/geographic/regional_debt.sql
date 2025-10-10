@@ -1,3 +1,4 @@
+-- Q7
 SELECT
     ad.address AS region,
     AVG(a.total_debt) AS avg_total_debt,

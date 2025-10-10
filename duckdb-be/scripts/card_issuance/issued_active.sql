@@ -1,3 +1,4 @@
+-- Q9
 WITH active_cards AS (
     SELECT DISTINCT c.card_id
     FROM cards c
