@@ -94,8 +94,9 @@ The analysis focuses on understanding user financial habits, assessing risk, and
 
 ---
 
-<img width="1099" height="1112" alt="image" src="https://github.com/user-attachments/assets/f87d6b69-6f49-4ae9-9f1e-59d396bc863b" />
-<img width="1062" height="834" alt="image" src="https://github.com/user-attachments/assets/dd2b903c-613c-4940-99ad-fea36b16d082" />
+<img width="1055" height="1108" alt="image" src="https://github.com/user-attachments/assets/db427a13-8ca3-455a-9698-deba8f97e451" />
+<img width="1057" height="825" alt="image" src="https://github.com/user-attachments/assets/135a9a52-13c0-4c30-a04d-3a5ba639c3dc" />
+
 
 ---
 
