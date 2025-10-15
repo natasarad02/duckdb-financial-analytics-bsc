@@ -13,7 +13,7 @@ user_df.to_csv("data/raw/user.csv", index=False)
 
 # Creating address.csv (data for Address entity in PostgreSQL)
 
-address_df = users[["id", "address", "latitude", "longitude"]].copy()
+address_df = users[["id", "address", "latitude", "longitude", "per_capita_income"]].copy()
 address_df = address_df.rename(columns={"id": "user_id"})
 address_df.insert(0, "address_id", range(1, len(address_df) + 1))
 address_df.to_csv("data/raw/address.csv", index=False)
@@ -22,7 +22,7 @@ address_df.to_csv("data/raw/address.csv", index=False)
 # Creating account.csv (data for Account entity in PostgreSQL)
 
 account_df = users[[
-    "id", "per_capita_income", "yearly_income", "total_debt",
+    "id", "yearly_income", "total_debt",
     "credit_score", "num_credit_cards"
 ]].copy()
 account_df = account_df.rename(columns={"id": "user_id"})

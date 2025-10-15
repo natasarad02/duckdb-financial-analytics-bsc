@@ -36,7 +36,7 @@ address_df = pd.read_csv("data/raw/address.csv")
 account_df = pd.read_csv("data/raw/account.csv")
 
 # Removing dollar signs
-account_df["per_capita_income"] = account_df["per_capita_income"].replace('[\$,]', '', regex=True).astype(float)
+address_df["per_capita_income"] = address_df["per_capita_income"].replace('[\$,]', '', regex=True).astype(float)
 account_df["yearly_income"] = account_df["yearly_income"].replace('[\$,]', '', regex=True).astype(float)
 account_df["total_debt"] = account_df["total_debt"].replace('[\$,]', '', regex=True).astype(float)
 

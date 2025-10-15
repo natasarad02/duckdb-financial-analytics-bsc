@@ -16,10 +16,10 @@ SELECT
     a.user_id,
     a.total_debt,
     us.total_spending,
-    a.per_capita_income,
+    a.yearly_income,
     CASE
-        WHEN a.per_capita_income < 20000 THEN 'Low Income'
-        WHEN a.per_capita_income < 50000 THEN 'Medium Income'
+        WHEN a.yearly_income < 20000 THEN 'Low Income'
+        WHEN a.yearly_income < 50000 THEN 'Medium Income'
         ELSE 'High Income'
     END AS income_category
 FROM Account a

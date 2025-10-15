@@ -19,7 +19,8 @@ CREATE TABLE IF NOT EXISTS "Address" (
     user_id INT REFERENCES "User"(user_id),
     address VARCHAR(255),
     latitude NUMERIC,
-    longitude NUMERIC
+    longitude NUMERIC,
+    per_capita_income NUMERIC
 );
 
 
@@ -27,7 +28,6 @@ CREATE TABLE IF NOT EXISTS "Address" (
 CREATE TABLE IF NOT EXISTS "Account" (
     account_id SERIAL PRIMARY KEY,
     user_id INT REFERENCES "User"(user_id),
-    per_capita_income NUMERIC,
     yearly_income NUMERIC,
     total_debt NUMERIC,
     credit_score INT,

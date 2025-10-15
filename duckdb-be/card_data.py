@@ -26,12 +26,7 @@ for _, row in cards_df.iterrows():
         "credit_limit": float(row["credit_limit"].replace("$","")),
         "acct_open_date": row["acct_open_date"],
         "year_pin_last_changed": int(row["year_pin_last_changed"]),
-        "card_on_dark_web": row["card_on_dark_web"].strip().lower() == "yes",
-        "features": {
-            "num_cards_issued": int(row["num_cards_issued"]),
-            "year_pin_last_changed": int(row["year_pin_last_changed"]),
-            "card_on_dark_web": row["card_on_dark_web"].strip().lower() == "yes"
-        }
+        "card_on_dark_web": row["card_on_dark_web"].strip().lower() == "yes"
     }
     card_documents.append(doc)
 
