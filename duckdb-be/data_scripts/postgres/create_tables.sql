@@ -18,6 +18,8 @@ CREATE TABLE IF NOT EXISTS "Address" (
     address_id SERIAL PRIMARY KEY,
     user_id INT REFERENCES "User"(user_id),
     address VARCHAR(255),
+    city VARCHAR(100),
+    state VARCHAR(100),
     latitude NUMERIC,
     longitude NUMERIC,
     per_capita_income NUMERIC
