@@ -8,7 +8,7 @@ user_spending AS (
     FROM transactions_parquet
     GROUP BY user_id
 )
-SELECT 'All Users' AS step, COUNT(*) AS users FROM "User"
+SELECT 'All Users' AS category, COUNT(*) AS users FROM "User"
 UNION ALL
 SELECT '2+ Cards', COUNT(*) 
 FROM user_card_counts
@@ -16,12 +16,8 @@ WHERE num_cards >= 2
 UNION ALL
 SELECT 'High Spenders', COUNT(*) 
 FROM user_spending
-WHERE total_spent > 5000
+WHERE total_spent > 300
 UNION ALL
 SELECT 'Low Credit Score', COUNT(*) 
 FROM "Account"
 WHERE credit_score < 700
-UNION ALL
-SELECT 'Compromised Cards', COUNT(*) 
-FROM cards 
-WHERE card_on_dark_web = TRUE;

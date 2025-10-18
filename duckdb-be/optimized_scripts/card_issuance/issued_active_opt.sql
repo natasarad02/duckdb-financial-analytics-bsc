@@ -3,7 +3,7 @@ WITH active_cards_count AS (
         c.card_id,
         1 AS is_active
     FROM cards c
-    JOIN transactions_parquet t USING(user_id)
+    JOIN transactions_parquet t ON t.user_id = c.user_id
     GROUP BY c.card_id
 )
 SELECT 
