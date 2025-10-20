@@ -13,6 +13,9 @@ connection.execute("DROP TABLE IF EXISTS account;")
 connection.execute("DROP TABLE IF EXISTS transactions_arrow;")
 connection.execute("DROP TABLE IF EXISTS transactions_parquet;")
 connection.execute("DROP TABLE IF EXISTS cards;")
+connection.execute("DROP INDEX IF EXISTS idx_account_total_debt;")
+connection.execute("DROP INDEX IF EXISTS idx_account_yearly_income;")
+
 
 connection.execute("""
 INSTALL postgres_scanner;
@@ -29,6 +32,16 @@ SELECT * FROM postgres_scan('postgresql://postgres:super@postgres:5432/users_dat
 """)
 
 connection.execute("""
+CREATE INDEX idx_account_total_debt
+ON account(total_debt);
+""")
+
+connection.execute("""
+CREATE INDEX idx_account_yearly_income
+ON account(yearly_income);
+""")
+
+connection.execute("""
 CREATE TABLE address AS 
 SELECT * FROM postgres_scan('postgresql://postgres:super@postgres:5432/users_data', 'public', 'Address');
 """)
@@ -37,6 +50,7 @@ connection.execute("""
 CREATE TABLE transactions_parquet AS
 SELECT * FROM read_parquet('data/raw/transactions_data.parquet');
 """)
+
 
 transactions_arrow = pd.read_feather('data/raw/transactions_data.arrow')
 connection.register('transactions_arrow', transactions_arrow)
@@ -55,6 +69,7 @@ connection.execute("""
 CREATE TABLE IF NOT EXISTS cards AS
 SELECT * FROM cards
 """)
+
 
 def get_connection():
     return connection

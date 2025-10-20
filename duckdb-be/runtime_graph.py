@@ -16,7 +16,7 @@ plt.bar(x + width/2, df["after_ms"], width, label="after", color='skyblue')
 
 plt.xlabel("Query")
 plt.ylabel("Time (ms)")
-plt.title("Before Optimization vs Adter Optimization - Execution Time per Query")
+plt.title("Before Optimization vs After Optimization - Execution Time per Query")
 plt.xticks(x, df["query"])
 plt.legend()
 plt.tight_layout()

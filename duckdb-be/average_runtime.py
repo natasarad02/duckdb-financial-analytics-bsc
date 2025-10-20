@@ -4,19 +4,20 @@ from duckdb_data import get_connection
 connection = get_connection()  
 
 query = """
-WITH active_cards AS (
-    SELECT DISTINCT c.card_id
-    FROM cards c
-    JOIN transactions_parquet t ON c.user_id = t.user_id
+WITH brand_counts AS (
+    SELECT
+        c.card_brand,
+        COUNT(*) AS num_transactions
+    FROM transactions_parquet t
+    JOIN cards c ON t.card_id = c.card_id
+    GROUP BY c.card_brand
 )
-SELECT 
-    c.card_brand AS card_brand,
-    SUM(c.num_cards_issued) AS total_cards_issued,
-    COUNT(ac.card_id) AS total_cards_active
-FROM cards c
-LEFT JOIN active_cards ac ON c.card_id = ac.card_id
-GROUP BY c.card_brand
-ORDER BY c.card_brand;
+SELECT
+    card_brand,
+    num_transactions,
+    ROUND(100.0 * num_transactions / SUM(num_transactions) OVER (), 2) AS pct_transactions
+FROM brand_counts
+ORDER BY pct_transactions DESC;
 """
 
 n_runs = 10
